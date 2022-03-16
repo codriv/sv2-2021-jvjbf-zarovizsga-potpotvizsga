@@ -24,7 +24,7 @@ public class City {
     }
 
     public Bistro findLongestMenu() {
-        return bistros.stream().max(Comparator.comparing(bistro -> bistro.getMenu().size())).get();
+        return bistros.stream().max(Comparator.comparing(bistro -> bistro.getMenu().size())).orElseThrow(()->new IllegalStateException("Menu not found!"));
     }
 
     public List<Bistro> findBistroWithMenuItem(String menuItemName) {
